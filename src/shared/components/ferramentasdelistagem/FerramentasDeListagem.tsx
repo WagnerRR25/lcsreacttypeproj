@@ -3,7 +3,7 @@ import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 import { Environment } from '../../environment';
 
 
-interface IFerramentasDaListagemProps {
+interface IFerramentasDeListagemProps {
   textoDaBusca?: string;
   mostrarInputBusca?: boolean;
   aoMudarTextoDeBusca?: (novoTexto: string) => void;
@@ -11,7 +11,7 @@ interface IFerramentasDaListagemProps {
   mostrarBotaoNovo?: boolean;
   aoClicarEmNovo?: () => void;
 }
-export const FerramentasDeListagem: React.FC<IFerramentasDaListagemProps> = ({
+export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
   textoDaBusca = '',
   aoMudarTextoDeBusca,
   mostrarInputBusca = false,
