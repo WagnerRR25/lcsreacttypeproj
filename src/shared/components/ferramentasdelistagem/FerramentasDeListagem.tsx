@@ -12,7 +12,7 @@ interface IFerramentasDeListagemProps {
   aoClicarEmNovo?: () => void;
 }
 export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
-  textoDaBusca = '',
+  textoDaBusca = ' ',
   aoMudarTextoDeBusca,
   mostrarInputBusca = false,
   aoClicarEmNovo,
