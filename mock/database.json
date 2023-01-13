@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id":1,
-      "email": "wagner@gmail.com",
-      "cidadeId": "The Porto",
-      "nameCompleto": "Wagner Gatão"
+      "cidadeId": "Floripa",
+      "email": "Wagner@gmail.com",
+      "nameCompleto": "Wagner Lindão"
     }
   ]
 }

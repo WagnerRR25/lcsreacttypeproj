@@ -37,7 +37,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
           size="small"
           value={textoDaBusca}
           placeholder={Environment.INPUT_DE_BUSCA}
-          onChange={(e) => aoMudarTextoDeBusca && (e.target.value)}
+          onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
         />
       )}
 

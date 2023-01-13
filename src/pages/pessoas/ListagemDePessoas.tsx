@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState,  } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { IListagemPessoa, PessoasService } from '../../shared/services/api/pessoas/PessoasService';
+import {  IListagemPessoa, PessoasService } from '../../shared/services/api/pessoas/PessoasService';
 import { FerramentasDeListagem } from "../../shared/components";
 import { LayoutBasePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks"
+import { Table, TableContainer } from '@mui/material';
+  //  IListagemPessoa,         useState
 
 
 
@@ -39,6 +41,7 @@ export const ListagemDePessoas: React.FC = () => {
           }
         });
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [busca]);
 
 
@@ -54,6 +57,12 @@ export const ListagemDePessoas: React.FC = () => {
         />
       }
     >
+      <TableContainer>
+        <Table>
+          
+        </Table>
+      </TableContainer>
+
     </LayoutBasePagina>
   );
 };
