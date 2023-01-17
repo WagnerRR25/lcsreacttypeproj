@@ -1,10 +1,46 @@
 {
   "pessoas": [
     {
-      "id":1,
-      "cidadeId": "Floripa",
+      "nameCompleto": "Wagner Lindão",
       "email": "Wagner@gmail.com",
-      "nameCompleto": "Wagner Lindão"
+      "cidadeId": "1",
+      "id": 1
+    },
+    {
+      "nameCompleto": "Juliana Linda",
+      "email": "juliana@gmail.com",
+      "cidadeId": "2",
+      "id": 2
+    },
+    {
+      "nameCompleto": "Manuela Lindeza",
+      "email": "Manuela@gmail.com",
+      "cidadeId": "3",
+      "id": 3
+    },
+    {
+      "nameCompleto": "Gabriel Rodrigues",
+      "email": "gabriel@gmail.com",
+      "cidadeId": "4",
+      "id": 4
+    },
+    {
+      "nameCompleto": "João Bassorici",
+      "email": "João@gmail.com",
+      "cidadeId": "5",
+      "id": 5
+    },
+    {
+      "nomeCompleto": "Juca",
+      "email": "juca@gmail.com",
+      "cidadeId": "6",
+      "id": 6
+    },
+    {
+      "nomeCompleto": "Wagner Rodrigues",
+      "email": "wagnerr@gmail.com",
+      "cidadeId": "7",
+      "id": 7
     }
   ]
 }

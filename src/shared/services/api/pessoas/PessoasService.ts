@@ -2,22 +2,22 @@ import { Environment } from '../../../environment';
 import { Api } from '../axios-config'
 
 export interface IListagemPessoa {
-  id: number
-  email: string
-  cidadeId: number
-  nomeCompleto: string
+  id: number;
+  email: string;
+  cidadeId: number;
+  nomeCompleto: string;
 }
 
 export interface IDetalhePessoa {
-  id: number
-  email: string
-  cidadeId: number
-  nomeCompleto: string
+  id: number;
+  email: string;
+  cidadeId: number;
+  nomeCompleto: string;
 }
 
 type TPessoasComTotalCount = {
-  data: IListagemPessoa[]
-  totalCount: number
+  data: IListagemPessoa[];
+  totalCount: number;
 }
 
 const getAll = async (
@@ -65,8 +65,7 @@ const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
 }
 
 const create = async (
-  dados: Omit<IDetalhePessoa, 'id'>
-): Promise<number | Error> => {
+  dados: Omit<IDetalhePessoa, 'id'>): Promise<number | Error> => {
   try {
     const { data } = await Api.post<IDetalhePessoa>('/pessoas', dados)
 
@@ -74,12 +73,11 @@ const create = async (
       return data.id
     }
 
-    return new Error('Erro ao criar o registro.')
+    return new Error('Erro ao criar o registro.');
   } catch (error) {
-    console.error(error)
+    console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao criar o registro.'
-    )
+      (error as { message: string }).message || 'Erro ao criar o registro.');
   }
 }
 
