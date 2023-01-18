@@ -1,5 +1,6 @@
+export * from './IVFormErrors';
 export * from './VTextField';
-export * from './VForm';
 export * from './useVForm';
+export * from './VForm';
 
 
