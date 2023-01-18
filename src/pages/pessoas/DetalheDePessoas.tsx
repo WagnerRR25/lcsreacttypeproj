@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom"
-import { FormHandles } from "@unform/core";
-import { Form } from "@unform/web";
 
-import { VTextField } from "../../shared/forms";
+
+import { VTextField, VForm, useVForm } from "../../shared/forms";
 import { LayoutBasePagina } from "../../shared/layouts";
 import { FerramentasDeDetalhe } from "../../shared/components";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasService";
@@ -19,7 +19,7 @@ export const DetalheDePessoas: React.FC = () => {
   const { id = 'nova' } = useParams<'id'>();
   const navigate = useNavigate();
 
-  const formRef = useRef<FormHandles>(null);
+  const { formRef, save, saveAndClose, isSaveAndClose } = useVForm();
   
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,6 +43,12 @@ export const DetalheDePessoas: React.FC = () => {
         formRef.current?.setData(result);
       }
     });
+  } else {
+    formRef.current?.setData({
+      nomeCompleto: '',
+      cidadeId: '',
+      email: '',
+    });
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -59,7 +65,11 @@ export const DetalheDePessoas: React.FC = () => {
         if (result instanceof Error) {
           alert(result.message);
         } else {
-          navigate(`/pessoas/detalhe/${result}`);
+          if (isSaveAndClose()) {
+            navigate('/pessoas');
+          } else {
+            navigate(`/pessoas/detalhe/${result}`);
+          }
         } 
       });
     } else {
@@ -70,7 +80,11 @@ export const DetalheDePessoas: React.FC = () => {
 
         if (result instanceof Error) {
           alert(result.message);
-        } 
+        } else {
+          if (isSaveAndClose()) {
+            navigate('/pessoas');
+          }
+        }
       });
     }
   };
@@ -99,8 +113,8 @@ export const DetalheDePessoas: React.FC = () => {
       mostrarBotaoNovo={id !== 'nova'}
       mostrarBotaoApagar={id !== 'nova'}
 
-      aoClicarEmSalvar={() => formRef.current?.submitForm()}
-      aoClicarEmSalvarEFechar={() => formRef.current?.submitForm()}
+      aoClicarEmSalvar={save}
+      aoClicarEmSalvarEFechar={saveAndClose}
       aoClicarEmVoltar={() => navigate('/pessoas')}
       aoClicarEmApagar={() => handleDelete(Number(id))}
       aoClicarEmNovo={() => navigate('/pessoas/detalhe/nova')}
@@ -108,16 +122,66 @@ export const DetalheDePessoas: React.FC = () => {
     } 
     >
 
-      <Form ref={formRef} onSubmit={handleSave}>
+      <VForm ref={formRef} onSubmit={handleSave}>
+        <Box margin={1} display="flex" flexDirection="column" component={Paper} variant="outlined" >
 
-        <VTextField placeholder="Nome Completo" name="nomeCompleto" />
-        <VTextField placeholder="Email" name="email" />
-        <VTextField placeholder="Cidade id" name="cidadeId" />
+          <Grid container direction="column" padding={2} spacing={2} >
+
+            
+            {isLoading && (
+            <Grid item>
+              <LinearProgress variant="indeterminate" />
+            </Grid>
+            )}
 
 
-        
-        {/* <button type="submit">Submit</button> */}
-      </Form>
+            <Grid item>
+              <Typography variant="h6">Geral</Typography>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2} >
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+
+              <VTextField 
+              fullWidth 
+              name="nomeCompleto" 
+              disabled={isLoading}
+              label="Nome Completo" 
+              onChange={e => setNome(e.target.value)}
+              />
+            </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2} >
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+
+              <VTextField 
+              fullWidth 
+              name="email" 
+              disabled={isLoading}
+              label="Email" 
+              />
+            </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2} >
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+
+              <VTextField 
+              fullWidth 
+              name="cidadeId" 
+              disabled={isLoading}
+              label="Cidade" 
+              />
+            </Grid>
+            </Grid>
+
+          </Grid>
+
+         
+                
+        </Box>
+      </VForm>
 
     
     <p>DetalheDePessoas</p>
