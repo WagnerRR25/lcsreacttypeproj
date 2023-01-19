@@ -7,10 +7,10 @@
       "cidadeId": "Floripa"
     },
     {
+      "id": 2,
       "nomeCompleto": "Juliana T. Bassorici",
       "email": "jubassorici@gmail.com",
-      "cidadeId": "Floripa",
-      "id": 2
+      "cidadeId": 1
     },
     {
       "nomeCompleto": "Manuela Rodrigues",
@@ -113,6 +113,55 @@
       "cidadeId": 27,
       "nomeCompleto": "Letícia",
       "id": 19
+    },
+    {
+      "id": 20,
+      "nomeCompleto": "Juquinha",
+      "email": "juq@gmail.com",
+      "cidadeId": 2
+    },
+    {
+      "nomeCompleto": "Lucas Souza",
+      "email": "lucas@gmail.com",
+      "cidadeId": 1,
+      "id": 21
     }
-  ]
+  ],
+  "cidades": [
+    {
+      "id": 1,
+      "nome": "Florianópolis"
+    },
+    {
+      "id": 2,
+      "nome": "Balneário Camboriú"
+    },
+    {
+      "nome": "Imbituba",
+      "id": 3
+    },
+    {
+      "nome": "Garopaba",
+      "id": 4
+    },
+    {
+      "nome": "Bombinhas",
+      "id": 5
+    },
+    {
+      "nome": "Porto Belo",
+      "id": 6
+    },
+    {
+      "nome": "Itapema",
+      "id": 7
+    },
+    {
+      "nome": "Criciúma",
+      "id": 8
+    }
+  ],
+  "auth": {
+    "accessToken":"aaaaaaaaa.bbbbbbb.ccccccccc"
+  }
 }
