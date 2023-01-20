@@ -7,7 +7,7 @@ interface Iauth {
 
 const auth = async (email: string, password: string ): Promise<Iauth | Error> => {
   try {
-    const { data } = await Api.get('/auth', { data: { email, password as}});
+    const { data } = await Api.get('/auth', { data: { email, password }});
 
     if (data) {
       return data;
@@ -24,5 +24,4 @@ const auth = async (email: string, password: string ): Promise<Iauth | Error> =>
 
 export const AuthService = {
   auth,
-
 };

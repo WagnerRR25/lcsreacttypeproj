@@ -61,7 +61,7 @@ export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({isExtern
 
 
     return selectedOption;
-  }, [selectedId, opcoes]);
+  }, [ opcoes, selectedId ]);
 
  return (
   <Autocomplete 
@@ -78,7 +78,7 @@ export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({isExtern
   value={autoCompleteSelectedOption}
   onInputChange={(_, newValue) => setBusca(newValue)}
   popupIcon={(isExternalLoading || isLoading) ? <CircularProgress size={28} /> : undefined}
-  onChange={(_, newValue) => { setSelectedId(newValue?.id); setBusca(''); clearError()}}
+  onChange={(_, newValue) => { setSelectedId(newValue?.id); setBusca(''); clearError(); }}
   renderInput={(params) => (
     <TextField
     {...params}
