@@ -53,9 +53,9 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
   );
 
   return(
-    <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center'>
-      <Card>
-        <CardContent>
+    <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center' >
+      <Card >
+        <CardContent >
           <Box display='flex' flexDirection='column' gap={2} width={250} >
             <Typography variant= 'h6' align="center" >Identifique-se</Typography>
 
